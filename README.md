@@ -1,16 +1,11 @@
-# React + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+# Requirements
+1. The key that need to be pressed when continue the sentence has some indication that it needs to be pressed
+2. When pushing either of teh Shift keys the keyboard visual changes 
+3. If a key requires that you push shift then indicate that you need to push shift once the keyboard changes indicate they key you need to push
+4. The letters you have already typed for a sentence must be different from the untyped letters
+5. Underline the current letter that needs to be typed
+6. When you push down a key transition to a state where it indicates that it is being pushed down
+7. When a key is no longer being pressed transition to the unpressed state
+8. Have at lest 2 keys able to be pushed down at once
+9. When a sentence is completed switch to a new sentence automatically 
+10. If the user types the wrong letter do not update the sentence to reflect that only update if they type the right letter
