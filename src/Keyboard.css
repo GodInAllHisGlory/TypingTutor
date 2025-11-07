@@ -1,5 +1,29 @@
 #keyboard {
     background-color: darkgray;
-    width: 750px;
-    height: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 15px;
+    gap: 15px;
+    width: 880px;
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+    gap: 9px;
+}
+
+.key {
+    background-color: black;
+    color: white;
+    font-size: 1.3em;
+    padding: 16px;
+    box-shadow: 0 3px 0 3px grey;
+    width: 24px;
+    height: 24px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
