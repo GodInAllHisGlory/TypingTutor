@@ -26,4 +26,13 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: 0.5s;
+}
+
+.shift{
+    width: 48px;
+}
+
+.highlighted {
+    box-shadow: 0 3px 0 3px red;
 }
