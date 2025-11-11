@@ -13,7 +13,11 @@ const shiftRows = [["~","!","@","#","$","%","^","&","*","(",")","_","+"],
 ["Shift","Z","X","C","V","B","N","M","<",">","?","Shift"],
 [" "]];
 
-function Keyboard() {
+function Keyboard(props) {
+    const {
+        pushedKey,
+        updateKey
+    } = props;
     const [pushedKeys, setPushedKeys] = useState([]);
     const [currentKeys, setRows] = useState(keyRows);
 
@@ -27,6 +31,7 @@ function Keyboard() {
                     setPushedKeys([]);
                 }
 
+            updateKey(key);
             setPushedKeys(prev => {
                 // avoid duplicates
                 if (prev.indexOf(key) !== -1) return prev;
@@ -41,7 +46,7 @@ function Keyboard() {
             setRows(keyRows);
             setPushedKeys([]);
         }
-        
+
         setPushedKeys(prev => prev.filter(k => k !== key));
     }
     
