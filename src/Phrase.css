@@ -1,12 +1,15 @@
 #phrase {
     font-size: 5em;
     text-align: center;
+    font-family: monospace;
+    font-weight: 700;
+    color:#898dc8
 }
 
-#typed{
-
+#typed {
+    color:black
 }
 
-#untyped {
-
+#pointer {
+    text-decoration: underline;
 }
