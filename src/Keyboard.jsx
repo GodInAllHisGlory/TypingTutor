@@ -9,7 +9,7 @@ const keyRows = [["`","1","2","3","4","5","6","7","8","9","0","-","="],
 
 const shiftRows = [["~","!","@","#","$","%","^","&","*","(",")","_","+"],
 ["Q","W","E","R","T","Y","U","I","O","P","{","}","|"],
-["A","S","D","F","G","H","J","K","L",";","'"],
+["A","S","D","F","G","H","J","K","L",";","\""],
 ["Shift","Z","X","C","V","B","N","M","<",">","?","Shift"],
 [" "]];
 
@@ -62,6 +62,16 @@ function Keyboard(props) {
     }, []); // Load the event listeners once on mount
 
     let rowKey = 0
+    let shiftKey = false;
+    for (const row of shiftRows){ // Figures out if the current pointer is in the shiftRows array
+        if(shiftKey) break;
+        for (const key of row){
+            if(key === pointer && pointer !== " "){
+                shiftKey = true;
+                break;
+            }
+        }
+    }
     return(
         <div id="keyboard">
             {currentKeys.map((row) => {
@@ -73,6 +83,9 @@ function Keyboard(props) {
 
                             if (key == "Shift"){
                                 className += " shift"
+                                if(shiftKey){
+                                    className += " highlighted"
+                                }
                             }else if (key == " "){
                                 className += " space-bar"
                             }

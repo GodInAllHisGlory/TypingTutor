@@ -40,11 +40,11 @@
     width: 48px;
 }
 
+.highlighted {
+    box-shadow: 0 3px 0 3px red;
+}
+
 .pushed {
     box-shadow: 0 1px #0006;
   transform: translateY(6px);
-}
-
-.highlighted {
-    box-shadow: 0 3px 0 3px red;
 }
