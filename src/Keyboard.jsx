@@ -14,7 +14,9 @@ const shiftRows = [["~","!","@","#","$","%","^","&","*","(",")","_","+"],
 [" "]];
 
 function Keyboard(props) {
+    console.log("Rendered");
     const {
+        pointer,
         pushedKey,
         updateKey
     } = props;
@@ -22,41 +24,41 @@ function Keyboard(props) {
     const [currentKeys, setRows] = useState(keyRows);
 
     useEffect(() => {
-    function keydown(e) {
-        if (e.repeat) return;
-            const key = e.key;
+        function keydown(e) {
+            if (e.repeat) return;
+                const key = e.key;
 
-            if (key == "Shift") {
-                    setRows(shiftRows);
-                    setPushedKeys([]);
-                }
+                if (key == "Shift") {
+                        setRows(shiftRows);
+                        setPushedKeys([]);
+                    }
 
-            updateKey(key);
-            setPushedKeys(prev => {
-                // avoid duplicates
-                if (prev.indexOf(key) !== -1) return prev;
-                return [...prev, key];
-            });
+                updateKey(key);
+                setPushedKeys(prev => {
+                    // avoid duplicates
+                    if (prev.indexOf(key) !== -1) return prev;
+                    return [...prev, key];
+                });
+            }
+        
+        function keyup(e) {
+            const key = e.key
+
+            if (key == "Shift"){
+                setRows(keyRows);
+                setPushedKeys([]);
+            }
+            updateKey("");
+            setPushedKeys(prev => prev.filter(k => k !== key));
         }
-    
-    function keyup(e) {
-        const key = e.key
+        
+        window.addEventListener("keydown", keydown);
+        window.addEventListener("keyup", keyup);
 
-        if (key == "Shift"){
-            setRows(keyRows);
-            setPushedKeys([]);
-        }
-
-        setPushedKeys(prev => prev.filter(k => k !== key));
-    }
-    
-    window.addEventListener("keydown", keydown);
-    window.addEventListener("keyup", keyup);
-
-    return () => {
-        window.removeEventListener("keydown", keydown);
-        window.removeEventListener("keyup", keyup);
-    };
+        return () => {
+            window.removeEventListener("keydown", keydown);
+            window.removeEventListener("keyup", keyup);
+        };
     }, []); // Load the event listeners once on mount
 
     let rowKey = 0
@@ -77,6 +79,10 @@ function Keyboard(props) {
 
                             if (pushedKeys.indexOf(key) !== -1){
                                 className += " pushed"
+                            }
+
+                            if(key === pointer){
+                                className += " highlighted"
                             }
 
                             return (<div className={className} key={`r${rowKey++}$k${symbolKey++}$`}>{key}</div>) //Combine symbolKey and rowKey to make a unique key for each element on the keyboard

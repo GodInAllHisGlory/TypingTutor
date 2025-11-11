@@ -16,21 +16,30 @@ export function Phrase(props) {
     const pointer = currentPharse[pointerPos];
     const untyped = currentPharse.slice(pointerPos + 1); //Gets all the chars after the pointer
 
-    useEffect(() => setPointerPos(0),[phraseIndex]);
-    useEffect(() => setPointer(pointer),[pointer]);
-    
-    if(typed.length === currentPharse.length){
-        if(phraseIndex === phrases.length){
-            updateIndex(0);
-        }else{
-            updateIndex(i => i + 1);
-        }
-    }
+    // Reset pointer position whenever the phrase changes
+    useEffect(() => {
+        setPointerPos(0);
+    }, [phraseIndex]);
 
-    if(pushedKey === pointer){
-        setPointerPos(i => i + 1);
-        updateKey("");
-    }
+    // Inform parent of the current pointer character
+    useEffect(() => {
+        setPointer(pointer);
+    }, [pointer, setPointer]);
+
+    // When pointer reaches the end of the phrase, advance to next phrase
+    useEffect(() => {
+        if (pointerPos >= currentPharse.length) {
+            updateIndex(i => (i + 1) % phrases.length);
+        }
+    }, [pointerPos]);
+
+    // Advance pointer when the user presses the expected key
+    useEffect(() => {
+        if (!pushedKey) return;
+        if (pushedKey === pointer) {
+            setPointerPos(i => i + 1);
+        }
+    }, [pushedKey, pointer]);
 
     return(
         <span id="phrase">

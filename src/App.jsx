@@ -6,7 +6,7 @@ import { Phrase } from './Phrase.jsx';
 function App() {
   const [pointer, setPointer] = useState("");
   const [pushedKey, updateKey] = useState("");
-  console.log(pushedKey)
+
   return (
     <>
       <div id="content">
@@ -17,6 +17,7 @@ function App() {
         updateKey = {updateKey}
         />
         <Keyboard 
+        pointer = {pointer}
         pushedKey = {pushedKey}
         updateKey = {updateKey}
         />
