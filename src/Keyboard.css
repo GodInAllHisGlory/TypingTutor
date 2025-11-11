@@ -1,11 +1,13 @@
 #keyboard {
     background-color: darkgray;
+    box-shadow: 0 4px 0 4px #6d6d6d;
     display: flex;
     flex-direction: column;
     justify-content: center;
     padding: 15px;
     gap: 15px;
     width: 880px;
+    border-radius: 8px;
 }
 
 .row {
@@ -29,8 +31,13 @@
     transition: 0.5s;
 }
 
-.shift{
+.shift {
     width: 48px;
+}
+
+.pushed {
+    box-shadow: 0 1px #0006;
+  transform: translateY(6px);
 }
 
 .highlighted {
