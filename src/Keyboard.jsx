@@ -14,10 +14,8 @@ const shiftRows = [["~","!","@","#","$","%","^","&","*","(",")","_","+"],
 [" "]];
 
 function Keyboard(props) {
-    console.log("Rendered");
     const {
         pointer,
-        pushedKey,
         updateKey
     } = props;
     const [pushedKeys, setPushedKeys] = useState([]);

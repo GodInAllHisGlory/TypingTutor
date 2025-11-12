@@ -14,11 +14,9 @@ function App() {
         pointer = {pointer}
         pushedKey = {pushedKey}
         setPointer = {setPointer}
-        updateKey = {updateKey}
         />
         <Keyboard 
         pointer = {pointer}
-        pushedKey = {pushedKey}
         updateKey = {updateKey}
         />
       </div>

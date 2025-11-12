@@ -1,13 +1,12 @@
 import { useState, useEffect } from 'react';
 import './Phrase.css'
 
-const phrases = ["Short and sweet","The quick brown fox jumps over the nothing. This isn't a classic pangram.","Hello, these are words and I'm typing them. How cool is that!?"];
+const phrases = ["Short and sweet","The quick brown fox jumps over the nothing. This isn't a classic pangram.","Hello, these are words and I'm typing them. How cool is that!?","Exclmation Mark ! At sign @ Octothorpe # Dollar Sign $ Percent Sign % Caret ^ Ampersand & Asterisk *","Wait—did she say, 'Meet me at 5:00 p.m.,' or 'See you tomorrow'?","My password is 9#X$2!q8, but don’t tell anyone. The total cost was $47.89.","- Dad had a bad fad. Add a dash and a pad. Sad lads had mad dads","Typing fast is fun, but typing accurately is better. Practice makes perfect every single time."];
 
 export function Phrase(props) {
     const {
         pushedKey,
         setPointer,
-        updateKey 
     } = props;
     const [pointerPos, setPointerPos] = useState(0);
     const [phraseIndex, updateIndex] = useState(0);
